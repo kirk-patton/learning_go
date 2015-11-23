@@ -78,4 +78,26 @@ func main() {
 	//Appending to the slice
 	strings = append(strings, "Z", "Y", "X")
 	fmt.Println(strings)
+
+	//Maps/Hashes/Dictionaries
+	var m map[string]int
+	m = make(map[string]int)
+
+	//Add key value
+	m["foo"] = 1
+	fmt.Printf("Map: m[foo] = %v\n", m["foo"])
+	fmt.Printf("Map: NumKeys %v\n", len(m))
+	value, tf := m["foo"]
+	fmt.Printf("Map KeyExists: value: %v exists: %v\n", value, tf)
+
+	//Delete key
+	fmt.Println("Map Delete Key\n")
+	delete(m, "foo")
+
+	//Get the number of key in a map
+	fmt.Printf("Map: NumKeys %v\n", len(m))
+
+	//Test key exists
+	value, tf = m["foo"]
+	fmt.Printf("Map KeyExists: value: %v exists: %v\n", value, tf)
 }
