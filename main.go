@@ -100,4 +100,14 @@ func main() {
 	//Test key exists
 	value, tf = m["foo"]
 	fmt.Printf("Map KeyExists: value: %v exists: %v\n", value, tf)
+
+	//Iterate over a map
+	m = map[string]int{
+		"A": 1,
+		"B": 2,
+		"C": 3,
+	}
+	for k, v := range m {
+		fmt.Printf("Map Interation Key: %v Value:%v\n", k, v)
+	}
 }
