@@ -4,6 +4,7 @@ import "fmt"
 import "os"
 import "bufio"
 import go_util "github.com/kirk-patton/go_util" //Syntax to rename the imported pkg.
+import "Learn/readFile"
 
 //import "io"
 //import "io/ioutil"
@@ -51,7 +52,7 @@ func main() {
 	scanner := bufio.NewScanner(fh)
 
 	//open file for append
-	w_fh, err := os.OpenFile("/tmp/go_write", os.O_WRONLY, os.ModeAppend)
+	w_fh, err := os.OpenFile("/tmp/go_write", os.O_RDWR|os.O_APPEND|os.O_CREATE, 0660)
 	go_util.Check(err)
 	writer := bufio.NewWriter(w_fh)
 
@@ -110,4 +111,12 @@ func main() {
 	for k, v := range m {
 		fmt.Printf("Map Interation Key: %v Value:%v\n", k, v)
 	}
+
+	//Debug using godebug
+	_ = "breakpoint"
+
+	fmt.Println("We should be in debug mode")
+
+	//Test readFile
+	readFile.Printfile("/etc/passwd")
 }
